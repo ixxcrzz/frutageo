@@ -2,267 +2,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Fresh fruit bowls made to brighten your day.">
-  <title>Fruitageo | Good Mood. Great Fruit.</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fruitageo — Good Mood. Great Fruit.</title>
+<meta name="description" content="Fresh fruit bowls, strawberry treats, acai bowls, shakes and juices by Fruitageo.">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="home.css">
-  <script src="script.js" defer></script>
-</head>
+<style>
+:root {
+  --pink: #ff5c91;
+  --pink-light: #ffe1eb;
+  --green: #d6ef8b;
+  --yellow: #ffdc68;
+  --cream: #fffaf0;
+  --dark: #28251f;
+  --muted: #756b64;
+}
 
-<body>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-<header class="site-header">
-  <nav class="navbar container">
-    <a class="logo" href="index.html">
-      <span class="logo-mark">F</span>
-      <span>fruitageo<span class="logo-dot">.</span></span>
-    </a>
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
 
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
+}
 
-    <div class="nav-links">
-      <a class="nav-link active" href="index.html">Home</a>
-      <a class="nav-link" href="menu.html">Our menu</a>
-      <a class="nav-cta" href="menu.html">Explore menu ↗</a>
-    </div>
-  </nav>
-</header>
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-<main>
+button {
+  font: inherit;
+}
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
+.container {
+  width: min(1160px, 88%);
+  margin: auto;
+}
 
-      <div class="hero-copy">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          A little sunshine in every bowl
-        </div>
+/* NAVIGATION */
 
-        <h1>GOOD MOOD.<br><span>GREAT FRUIT.</span></h1>
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--cream);
+  border-bottom: 1px solid #28251f12;
+}
 
-        <p class="hero-description">
-          Fresh, colourful and made to make your day a little sweeter.
-          Find your new favourite fruit bowl with Fruitageo.
-        </p>
+nav {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-        <div class="hero-actions">
-          <a class="button button-dark" href="menu.html">
-            Explore the menu ↗
-          </a>
-          <a class="text-link" href="#about">Get to know us ↓</a>
-        </div>
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font: 700 29px "Fredoka", sans-serif;
+  letter-spacing: -1px;
+}
 
-        <div class="hero-note">
-          <span class="sparkle">✳</span>
-          Fresh flavours. Happy vibes.
-        </div>
-      </div>
+.logo-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  background: var(--pink);
+  color: white;
+  border-radius: 12px 12px 12px 3px;
+  transform: rotate(-7deg);
+}
 
-      <div class="hero-art">
-        <div class="art-circle"></div>
+.logo span:last-child {
+  color: var(--pink);
+}
 
-        <div class="art-label label-top">FRESH<br>FEELING</div>
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
 
-        <div class="fruit fruit-strawberry">🍓</div>
-        <div class="fruit fruit-pineapple">🍍</div>
-        <div class="fruit fruit-watermelon">🍉</div>
-        <div class="fruit fruit-kiwi">🥝</div>
+.nav-links a {
+  font-size: 12px;
+  font-weight: 800;
+}
 
-        <div class="bowl">
-          <div class="bowl-top">
-            <span>🍓</span>
-            <span>🍌</span>
-            <span>🥝</span>
-            <span>🍍</span>
-            <span>🍓</span>
-          </div>
-          <div class="bowl-front">
-            <span>fruitageo</span>
-          </div>
-        </div>
+.nav-links a:hover {
+  color: var(--pink);
+}
 
-        <div class="art-label label-bottom">
-          MADE WITH<br>GOOD VIBES ♡
-        </div>
-      </div>
+.nav-button {
+  padding: 13px 20px;
+  border-radius: 50px;
+  background: var(--dark);
+  color: white;
+  transition: .2s;
+}
 
-    </div>
+.nav-button:hover {
+  background: var(--pink);
+  color: white !important;
+}
 
-    <div class="hero-bottom container">
-      <span>FRUIT FIRST, ALWAYS</span>
-      <span class="hero-bottom-line"></span>
-      <span>FRESHNESS YOU CAN FEEL</span>
-    </div>
-  </section>
+/* HERO */
 
-  <!-- MOVING TEXT -->
-  <div class="ticker">
-    <div class="ticker-track">
-      <span>FRESH FRUIT</span><b>✳</b>
-      <span>HAPPY MOOD</span><b>✳</b>
-      <span>GOOD ENERGY</span><b>✳</b>
-      <span>FRESH FRUIT</span><b>✳</b>
-      <span>HAPPY MOOD</span><b>✳</b>
-      <span>GOOD ENERGY</span><b>✳</b>
-    </div>
-  </div>
+.hero {
+  background: var(--pink-light);
+  padding: 65px 0 55px;
+  overflow: hidden;
+}
 
-  <!-- ABOUT -->
-  <section class="intro section-space" id="about">
-    <div class="container intro-grid">
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  gap: 35px;
+}
 
-      <div class="section-kicker">01 / THE FRUITAGEO FEELING</div>
+.tag {
+  display: inline-block;
+  padding: 10px 15px;
+  background: white;
+  border-radius: 30px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
 
-      <div class="intro-copy">
-        <h2>Not just a snack.<br><span>A whole mood.</span></h2>
+.hero h1 {
+  margin: 25px 0 20px;
+  font: 700 clamp(55px, 7vw, 88px)/.93 "Fredoka", sans-serif;
+  letter-spacing: -3px;
+}
 
-        <p>
-          We believe good food should look as good as it tastes.
-          Fruitageo brings together colourful fruit and creamy yogurt
-          for a feel-good treat worth looking forward to.
-        </p>
+.hero h1 span {
+  color: var(--pink);
+}
 
-        <a class="underlined-link" href="menu.html">
-          Find your favourite ↗
-        </a>
-      </div>
+.hero-copy > p {
+  max-width: 450px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
 
-      <div class="intro-sticker">
-        <span>FRESH</span>
-        <strong>✳</strong>
-        <span>HAPPY</span>
-      </div>
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 30px;
+}
 
-    </div>
-  </section>
+.primary-btn {
+  display: inline-block;
+  padding: 16px 23px;
+  border-radius: 50px;
+  background: var(--dark);
+  color: white;
+  font-size: 12px;
+  font-weight: 900;
+  transition: .2s;
+}
 
-  <!-- HIGHLIGHTS -->
-  <section class="highlights section-space">
-    <div class="container">
+.primary-btn:hover {
+  background: var(--pink);
+  transform: translateY(-3px);
+}
 
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">02 / WHY YOU'LL LOVE IT</div>
-          <h2>A bowl full of <span>happy.</span></h2>
-        </div>
+.secondary-link {
+  font-size: 12px;
+  font-weight: 900;
+}
 
-        <p>Bright colours, fruity goodness<br>and feel-good flavour.</p>
-      </div>
+.hero-note {
+  margin-top: 40px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
 
-      <div class="highlight-grid">
+.hero-art {
+  min-height: 430px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
 
-        <article class="highlight-card card-pink">
-          <div class="card-icon">🍓</div>
-          <span class="card-number">01</span>
-          <h3>Fruit-forward</h3>
-          <p>
-            Enjoy the flavours and colours of fruit favourites
-            like strawberry, pineapple, kiwi and more.
-          </p>
-          <span class="card-scribble">so fresh!</span>
-        </article>
+.art-circle {
+  width: min(370px, 90%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--yellow);
+}
 
-        <article class="highlight-card card-green">
-          <div class="card-icon">🥣</div>
-          <span class="card-number">02</span>
-          <h3>Creamy goodness</h3>
-          <p>
-            A delicious fruit-and-yogurt combination for a treat
-            that feels as good as it looks.
-          </p>
-          <span class="card-scribble">yum yum</span>
-        </article>
+.bowl {
+  position: absolute;
+  z-index: 2;
+  width: 280px;
+  filter: drop-shadow(0 20px 14px #8c46502a);
+  transform: rotate(-6deg);
+}
 
-        <article class="highlight-card card-yellow">
-          <div class="card-icon">☀️</div>
-          <span class="card-number">03</span>
-          <h3>Good-day energy</h3>
-          <p>
-            Bring a little colour to your day with a bowl
-            made for bright moments.
-          </p>
-          <span class="card-scribble">good vibes</span>
-        </article>
+.bowl-top {
+  height: 100px;
+  border: 8px solid white;
+  border-radius: 50%;
+  background: #fff3d5;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 34px;
+}
 
-      </div>
-    </div>
-  </section>
+.bowl-front {
+  height: 120px;
+  margin-top: -15px;
+  border: 7px solid white;
+  border-top: 0;
+  border-radius: 5px 5px 70px 70px;
+  background: linear-gradient(140deg, #ff8bad, #ed4f83);
+  color: white;
+  display: grid;
+  place-items: center;
+  font: 600 25px "Fredoka", sans-serif;
+}
 
-  <!-- MENU PROMOTION -->
-  <section class="menu-promo section-space">
-    <div class="container promo-panel">
+.floating-fruit {
+  position: absolute;
+  z-index: 3;
+  font-size: 62px;
+  animation: float 4s ease-in-out infinite;
+}
 
-      <div class="promo-copy">
-        <div class="section-kicker">03 / YOUR NEXT FAVOURITE</div>
+.fruit-a { top: 7%; left: 8%; }
+.fruit-b { top: 8%; right: 4%; animation-delay: .7s; }
+.fruit-c { bottom: 9%; left: 5%; animation-delay: 1.2s; }
+.fruit-d { bottom: 8%; right: 5%; animation-delay: .4s; }
 
-        <h2>What's your<br><span>fruit mood?</span></h2>
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-7deg); }
+  50% { transform: translateY(-12px) rotate(8deg); }
+}
 
-        <p>
-          Ready for something fresh? Take a look at the Fruitageo
-          menu and find a fruity treat to brighten your day.
-        </p>
+/* TICKER */
 
-        <a class="button button-light" href="menu.html">
-          See the menu ↗
-        </a>
-      </div>
+.ticker {
+  overflow: hidden;
+  background: var(--green);
+  padding: 17px 0;
+}
 
-      <div class="promo-art">
-        <div class="promo-sun"></div>
-        <div class="promo-fruit">🍍</div>
-        <div class="promo-fruit second">🍓</div>
-        <div class="promo-fruit third">🥝</div>
-        <div class="promo-caption">FRESH<br>IS THE<br>BEST</div>
-      </div>
+.ticker-track {
+  width: max-content;
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  font: 600 19px "Fredoka", sans-serif;
+  letter-spacing: 1px;
+  animation: slide 22s linear infinite;
+}
 
-    </div>
-  </section>
+@keyframes slide {
+  to { transform: translateX(-50%); }
+}
 
-  <!-- CLOSING -->
-  <section class="closing section-space">
-    <div class="container closing-inner">
-      <span class="closing-star">✳</span>
-      <p>MAKE TODAY A</p>
-      <h2>FRUITY DAY.</h2>
-      <a class="button button-dark" href="menu.html">
-        Let's pick your bowl ↗
-      </a>
-    </div>
-  </section>
+/* INTRO */
 
-</main>
+.section {
+  padding: 95px 0;
+}
 
-<footer class="site-footer">
-  <div class="container footer-main">
+.section-label {
+  color: var(--pink);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
 
-    <a class="logo footer-logo" href="index.html">
-      <span class="logo-mark">F</span>
-      <span>fruitageo<span class="logo-dot">.</span></span>
-    </a>
+.intro {
+  display: grid;
+  grid-template-columns: .8fr 1.5fr;
+  gap: 35px;
+}
 
-    <p>Good mood. Great fruit. Every day.</p>
+.intro h2,
+.section-heading h2 {
+  margin: 13px 0;
+  font: 600 clamp(38px, 5vw, 58px)/1.05 "Fredoka", sans-serif;
+  letter-spacing: -1.5px;
+}
 
-    <a class="footer-menu-link" href="menu.html">
-      Explore our menu ↗
-    </a>
+.intro h2 span,
+.section-heading h2 span {
+  color: var(--pink);
+}
 
-  </div>
+.intro p {
+  max-width: 600px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
 
-  <div class="container footer-bottom">
-    <span>© <span id="year"></span> Fruitageo</span>
-    <span>Made for fruit lovers ♡</span>
-  </div>
-</footer>
+/* MENU */
 
-</body>
-</html>
+.menu-section {
+  background: #fff1df;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-heading > p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.menu-category {
+  margin-bottom: 55px;
+  scroll-margin-top: 110px;
+}
+
+.category-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.category-heading h3 {
+  font: 600 32px "Fredoka", sans-serif;
+}
+
+.category-heading h3 span {
+  color: var(--pink);
+}
+
+.category-heading p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.product-card {
+  padding: 23px;
+  min-width: 0;
+  min-height: 235px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 17px;
+  transition: .25s;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 
