@@ -1,65 +1,51 @@
 
-// FRUITAGEO HOMEPAGE INTERACTIONS
+document.addEventListener("DOMContentLoaded", () => {
 
-// Mobile navigation
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
 
-if (menuToggle && navLinks) {
-  menuToggle.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
+    if (menuToggle && navLinks) {
 
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("active");
 
-    menuToggle.setAttribute(
-      "aria-label",
-      isOpen ? "Close navigation" : "Open navigation"
-    );
-  });
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+        });
 
-  navLinks.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation");
-    });
-  });
-}
+        // Close navigation after selecting a link
+        navLinks.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+            });
+        });
+    }
 
-// Automatically update footer year
-const year = document.querySelector("#year");
+    // Reveal product cards as they enter the screen
+    const cards = document.querySelectorAll(".product-card, .juice-item");
 
-if (year) {
-  year.textContent = new Date().getFullYear();
-}
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12
+        });
 
-// Scroll reveal animation
-const revealTargets = document.querySelectorAll(
-  ".intro-copy, .intro-sticker, .highlight-card, .promo-panel, .closing-inner"
-);
+        cards.forEach(card => {
+            card.classList.add("reveal");
+            observer.observe(card);
+        });
+    } else {
+        cards.forEach(card => card.classList.add("visible"));
+    }
 
-revealTargets.forEach((element) => {
-  element.classList.add("reveal");
+    console.log("🍓 Welcome to Fruitageo!");
 });
-
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries, currentObserver) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          currentObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
-
-  revealTargets.forEach((element) => {
-    observer.observe(element);
-  });
-} else {
-  revealTargets.forEach((element) => {
-    element.classList.add("visible");
-  });
-}
